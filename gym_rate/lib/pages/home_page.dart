@@ -23,18 +23,10 @@ class _HomePageState extends State<HomePage> {
         child: MyAppBar(context),
       ),
       bottomNavigationBar: MyNavigationBar(context),
-      body: Consumer<ExerciseData>(
-        builder: (context, val, child) {
-          //selectedDay = val.dayNames.keys.toList()[0];
-          return Column(
-            children: [
-              ExercisesSection(),
-              // ExerciseDaySelector(
-              //   changeExerciseDay: changeSelectedDay,
-              // ),
-            ],
-          );
-        },
+      body: Column(
+        children: [
+          ExercisesSection(),
+        ],
       ),
     );
   }

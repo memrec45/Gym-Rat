@@ -12,7 +12,16 @@ class ExercisesSection extends StatefulWidget {
 }
 
 class _ExercisesSectionState extends State<ExercisesSection> {
+  //TODO: define the selected day in initState()
   String selectedDay = "Volume Day";
+
+  void _onPageChanged(var val, int pageIndex) {
+    setState(
+      () {
+        selectedDay = val.dayNames.keys.toList()[pageIndex];
+      },
+    );
+  }
 
   final _pageController = PageController(initialPage: 0);
 
@@ -20,17 +29,10 @@ class _ExercisesSectionState extends State<ExercisesSection> {
   Widget build(BuildContext context) {
     return Consumer<ExerciseData>(builder: (context, val, child) {
       return Expanded(
-        //height: 300,
         child: PageView.builder(
           itemCount: val.dayNames.length,
           controller: _pageController,
-          onPageChanged: (int pageIndex) {
-            setState(
-              () {
-                selectedDay = val.dayNames.keys.toList()[pageIndex];
-              },
-            );
-          },
+          onPageChanged: (pageIndex) => _onPageChanged(val, pageIndex),
           itemBuilder: (context, index) {
             //asdasdad
             return Padding(
