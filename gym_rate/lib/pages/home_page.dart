@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                           const Divider(
                             thickness: 2,
                             height: 5,
-                          ),//asdasdasd
+                          ),
                           Container(
                             height: 300,
                             child: ExerciseTile(
